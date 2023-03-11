@@ -6,13 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -21,9 +19,16 @@ import Pokemon.Mang2;
 import Pokemon.Freeja;
 
 
-public class DragonFlight extends JFrame {
-	DrawPanel panel;
 
+public class DragonFlight extends JFrame {
+	
+	Database db = null;
+	LoginFrame lf = null;
+	JoinFrame jf = null;
+	Operator o = null;
+	
+	DrawPanel panel;
+	
 	static String player_name; // 플레이어 이름 변수
 	JLabel nameLabel; // 화면내에 이름 라벨
 	JLabel scoreLabel; // 화면내에 점수 라벨
@@ -90,7 +95,7 @@ public class DragonFlight extends JFrame {
 
 	ArrayList<Item> listI = new ArrayList<Item>(); // 아이템 객체
 	ArrayList<Heart> listH = new ArrayList<Heart>(); // 하트 객체
-	ArrayList<players> listN = new ArrayList<players>();// 플레이어 이름 객체
+
 
 	// 삭제 객체
 	ArrayList<Attack> ATRemove = new ArrayList<>();
@@ -116,8 +121,6 @@ public class DragonFlight extends JFrame {
 	// 생성자 - Frame 기본설정, 패널 추가
 	DragonFlight() {
 
-		// 이름 저장
-		nameInput();
 
 		// 타이머 생성
 		t = new Timer(10, new Draw());
@@ -162,7 +165,7 @@ public class DragonFlight extends JFrame {
 		this.setResizable(false);// 크기조절 마음대로 못하게
 
 		init(); // boolean형을 통해 mainScreen그려주기
-		name();// 이름 저장
+//		name();// 이름 저장
 		Dragoninit(); // 드래곤 저장
 
 	}
@@ -183,10 +186,6 @@ public class DragonFlight extends JFrame {
 
 	}
 
-	// 이름 저장
-	public void name() {
-		listN.add(new players(player_name));
-	}
 
 	// 화면 전환
 	public void screenDraw(Graphics g) {
@@ -213,21 +212,7 @@ public class DragonFlight extends JFrame {
 		}
 	}
 
-	// 시작 전 사용자 이름 받기
-	public void nameInput() {
-		while (true) {
-			player_name = (String) JOptionPane.showInputDialog(this, "플레이어의 이름을 입력하세요(3자 이내)", "REEZAMONG",
-					JOptionPane.PLAIN_MESSAGE);
-			if (player_name == null)
-				System.exit(0);
-			else if (player_name.length() > 3)
-				player_name = (String) JOptionPane.showInputDialog(this, "플레이어의 이름을 입력하세요(3자 이내)", "SHOOTING GAME",
-						JOptionPane.PLAIN_MESSAGE);
-			else if (player_name.length() <= 3) {
-				break;
-			}
-		}
-	}
+
 
 	class Draw implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
@@ -1175,20 +1160,24 @@ public class DragonFlight extends JFrame {
 	}
 
 	// 플레이어 이름
-	class players {
-		String name;
-
-		players(String player_name) {
-			this.name = player_name;
-		}
-
-		public String name() {
-			return this.name;
-		}
-	}
+//	class players {
+//		String name;
+//
+//		players(String player_name) {
+//			this.name = player_name;
+//		}
+//
+//		public String name() {
+//			return this.name;
+//		}
+//	}
 
 	public static void main(String[] args) {
-		new DragonFlight();
+		
+		Operator opt = new Operator();
+		opt.db = new Database();
+		opt.lf = new LoginFrame(opt);
+		opt.jf = new JoinFrame(opt);
 	}
 
 }
