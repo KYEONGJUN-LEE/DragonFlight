@@ -23,6 +23,7 @@ public class LoginFrame extends JFrame {
 	JButton loginBtn = new JButton("로그인");
 	JButton joinBtn = new JButton("회원가입");
 	JButton exitBtn = new JButton("프로그램 종료");
+	JButton changeBtn = new JButton("회원정보변경");
 	
 	Operator o = null;
 	
@@ -35,20 +36,21 @@ public class LoginFrame extends JFrame {
 		centerPanel.setPreferredSize(new Dimension(260, 80));
 		westPanel.setPreferredSize(new Dimension(210, 75));
 		eastPanel.setPreferredSize(new Dimension(90, 75));
-		southPanel.setPreferredSize(new Dimension(290, 40));
+		southPanel.setPreferredSize(new Dimension(290, 65));
 		
 		/* Label 크기 작업 */
 		idL.setPreferredSize(new Dimension(50, 30));
 		pwL.setPreferredSize(new Dimension(50, 30));
 		
 		/* TextField 크기 작업 */
-		id.setPreferredSize(new Dimension(140, 30));
-		pw.setPreferredSize(new Dimension(140, 30));
+		id.setPreferredSize(new Dimension(150, 30));
+		pw.setPreferredSize(new Dimension(150, 30));
 		
 		/* Button 크기 작업 */
 		loginBtn.setPreferredSize(new Dimension(75, 63));
 		joinBtn.setPreferredSize(new Dimension(135, 25));
 		exitBtn.setPreferredSize(new Dimension(135, 25));
+		changeBtn.setPreferredSize(new Dimension(135, 25));
 		
 		/* Panel 추가 작업 */
 		setContentPane(basePanel);	//panel을 기본 컨테이너로 설정
@@ -68,23 +70,28 @@ public class LoginFrame extends JFrame {
 		westPanel.add(pwL);
 		westPanel.add(pw);
 		
+		
 		/* eastPanel 컴포넌트 */
 		eastPanel.add(loginBtn);
 		
 		/* southPanel 컴포넌트 */
 		southPanel.add(exitBtn);
 		southPanel.add(joinBtn);
+		southPanel.add(changeBtn);
+		
 		
 		/* Button 이벤트 리스너 추가 */
 		ButtonListener bl = new ButtonListener();
 		ButtonListener b2 = new ButtonListener();
 		ButtonListener b3 = new ButtonListener();
+		ButtonListener b4 = new ButtonListener();
 		
 		loginBtn.addActionListener(bl);
 		exitBtn.addActionListener(b2);
 		joinBtn.addActionListener(b3);
+		changeBtn.addActionListener(b4);
 		
-		setSize(310, 150);
+		setSize(320, 175);
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setResizable(false);
@@ -98,6 +105,7 @@ public class LoginFrame extends JFrame {
 			JButton b1 = (JButton)e.getSource();
 			JButton b2 = (JButton)e.getSource();
 			JButton b3 = (JButton)e.getSource();
+			JButton b4 = (JButton)e.getSource();
 			
 			
 			
@@ -118,6 +126,10 @@ public class LoginFrame extends JFrame {
 			/* 회원가입 버튼 이벤트 */
 			else if(b3.getText().equals("회원가입")) {
 				o.jf.setVisible(true);
+			}
+			/* 회원정보변경 버튼 이벤트 */
+			else if(b4.getText().equals("회원정보변경")) {
+				o.cf.setVisible(true);
 			}
 			
 			/* 로그인 버튼 이벤트 */

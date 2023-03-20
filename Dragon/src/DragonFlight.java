@@ -22,6 +22,10 @@ import Pokemon.Freeja;
 
 public class DragonFlight extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Database db = null;
 	LoginFrame lf = null;
 	JoinFrame jf = null;
@@ -344,6 +348,11 @@ public class DragonFlight extends JFrame {
 	}
 
 	class DrawPanel extends JPanel implements KeyListener {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public void paintComponent(Graphics g) {
 
 			bImage = createImage(PANEL_WIDTH, PANEL_HEIGHT); // 화면 채우기
@@ -935,6 +944,10 @@ public class DragonFlight extends JFrame {
 
 	// 드래곤
 	class Dragon extends ImageIcon {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		int x;
 		int y;
 		int w;
