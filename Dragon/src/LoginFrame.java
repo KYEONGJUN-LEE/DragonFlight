@@ -24,6 +24,7 @@ public class LoginFrame extends JFrame {
 	JButton joinBtn = new JButton("회원가입");
 	JButton exitBtn = new JButton("프로그램 종료");
 	JButton changeBtn = new JButton("회원정보변경");
+	JButton deleteBtn = new JButton("회원정보삭제");
 	
 	Operator o = null;
 	
@@ -51,6 +52,7 @@ public class LoginFrame extends JFrame {
 		joinBtn.setPreferredSize(new Dimension(135, 25));
 		exitBtn.setPreferredSize(new Dimension(135, 25));
 		changeBtn.setPreferredSize(new Dimension(135, 25));
+		deleteBtn.setPreferredSize(new Dimension(135, 25));
 		
 		/* Panel 추가 작업 */
 		setContentPane(basePanel);	//panel을 기본 컨테이너로 설정
@@ -78,6 +80,7 @@ public class LoginFrame extends JFrame {
 		southPanel.add(exitBtn);
 		southPanel.add(joinBtn);
 		southPanel.add(changeBtn);
+		southPanel.add(deleteBtn);
 		
 		
 		/* Button 이벤트 리스너 추가 */
@@ -85,11 +88,14 @@ public class LoginFrame extends JFrame {
 		ButtonListener b2 = new ButtonListener();
 		ButtonListener b3 = new ButtonListener();
 		ButtonListener b4 = new ButtonListener();
+		ButtonListener b5 = new ButtonListener();
 		
 		loginBtn.addActionListener(bl);
 		exitBtn.addActionListener(b2);
 		joinBtn.addActionListener(b3);
 		changeBtn.addActionListener(b4);
+		deleteBtn.addActionListener(b5);
+		
 		
 		setSize(320, 175);
 		setLocationRelativeTo(null);
@@ -106,6 +112,7 @@ public class LoginFrame extends JFrame {
 			JButton b2 = (JButton)e.getSource();
 			JButton b3 = (JButton)e.getSource();
 			JButton b4 = (JButton)e.getSource();
+			JButton b5 = (JButton)e.getSource();
 			
 			
 			
@@ -130,6 +137,9 @@ public class LoginFrame extends JFrame {
 			/* 회원정보변경 버튼 이벤트 */
 			else if(b4.getText().equals("회원정보변경")) {
 				o.cf.setVisible(true);
+			}
+			else if(b5.getText().equals("회원정보삭제")) {
+				o.df.setVisible(true);
 			}
 			
 			/* 로그인 버튼 이벤트 */

@@ -3,6 +3,7 @@ public class Operator {
 	LoginFrame lf = null;
 	JoinFrame jf = null;
 	ChangeFrame cf = null;
+	DeleteFrame df = null;
 	
 	public static void main(String[] args) {
 		Operator opt = new Operator();
@@ -10,6 +11,7 @@ public class Operator {
 		opt.lf = new LoginFrame(opt);
 		opt.jf = new JoinFrame(opt);
 		opt.cf = new ChangeFrame(opt);
+		opt.df = new DeleteFrame(opt);
 		
 
 

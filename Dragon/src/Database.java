@@ -1,4 +1,6 @@
 import java.sql.*;
+
+import javax.swing.JOptionPane;
 public class Database {
 	Connection con = null;
 	Statement stmt = null;
@@ -91,6 +93,32 @@ public class Database {
 		} catch(Exception e) {
 			flag = false;
 			System.out.println("비밀번호 변경 실패 > " + e.toString());
+		}
+
+		return flag;
+
+	}
+	boolean deleteInformation(String _n,String _i,String _p) {
+		boolean flag = false;
+
+		String nm = _n;
+		String id = _i;
+		String pw = _p;
+
+		try {
+			stmt = con.prepareStatement("Delete From member WHERE name = ? AND id =? AND password =?" );
+
+			((PreparedStatement) stmt).setString(1,nm);
+			((PreparedStatement) stmt).setString(2,id);
+			((PreparedStatement) stmt).setString(3,pw);
+			((PreparedStatement) stmt).executeUpdate();
+
+			flag = true;
+			System.out.println("회원정보 삭제");
+			
+		} catch(Exception e) {
+			flag = false;
+			System.out.println("회원정보 삭제불가 > " + e.toString());
 		}
 
 		return flag;
