@@ -33,75 +33,75 @@ public class DragonFlight extends JFrame {
 	
 	DrawPanel panel;
 	
-	static String player_name; // ÇÃ·¹ÀÌ¾î ÀÌ¸§ º¯¼ö
-	JLabel nameLabel; // È­¸é³»¿¡ ÀÌ¸§ ¶óº§
-	JLabel scoreLabel; // È­¸é³»¿¡ Á¡¼ö ¶óº§
-	JLabel levelLabel; // È­¸é³»¿¡ Á¡¼ö ¶óº§
+	static String player_name; // í”Œë ˆì´ì–´ ì´ë¦„ ë³€ìˆ˜
+//	JLabel nameLabel; // í™”ë©´ë‚´ì— ì´ë¦„ ë¼ë²¨
+	JLabel scoreLabel; // í™”ë©´ë‚´ì— ì ìˆ˜ ë¼ë²¨
+	JLabel levelLabel; // í™”ë©´ë‚´ì— ì ìˆ˜ ë¼ë²¨
 	
 
-	Timer t; // ºñÇà±â Å¸ÀÌ¸Ó
-	Timer at; // °ø°İ Å¸ÀÌ¸Ó
+	Timer t; // ë¹„í–‰ê¸° íƒ€ì´ë¨¸
+	Timer at; // ê³µê²© íƒ€ì´ë¨¸
 	Timer at2;
 
-	int INDEX = 3; // »ı¸í·Â Ä«¿îÆ®
-	int CountE = 0; // ¿£ÅÍÅ° È½¼ö Ä«¿îÆ®
+	int INDEX = 3; // ìƒëª…ë ¥ ì¹´ìš´íŠ¸
+	int CountE = 0; // ì—”í„°í‚¤ íšŸìˆ˜ ì¹´ìš´íŠ¸
 	int item;
 
-	int score = 1; // Á¡¼ö Ä«¿îÆ®
-	int level = 1; // ·¹º§ Ä«¿îÆ®
+	int score = 1; // ì ìˆ˜ ì¹´ìš´íŠ¸
+	int level = 1; // ë ˆë²¨ ì¹´ìš´íŠ¸
 
-	int count = 0; // Å¸ÀÌ¸Ó Ä«¿îÆ®
+	int count = 0; // íƒ€ì´ë¨¸ ì¹´ìš´íŠ¸
 
-	// ÀÌ¹ÌÁöÆÄÀÏ
-	Image mainScreen = new ImageIcon(getClass().getClassLoader().getResource("image/main_Screen.png")).getImage(); // °ÔÀÓ½ÃÀÛÈ­¸é	
-	Image explainScreen = new ImageIcon(getClass().getClassLoader().getResource("image/loading_screen.png")).getImage(); // ¼³¸íÈ­¸é
-	Image explainScreen2 = new ImageIcon(getClass().getClassLoader().getResource("image/loading_screen2.png")).getImage(); // ¼³¸íÈ­¸é
-	Image gameScreen = new ImageIcon(getClass().getClassLoader().getResource("image/main_Screen1.png")).getImage(); // °ÔÀÓÈ­¸é		
-	Image endScreen = new ImageIcon(getClass().getClassLoader().getResource("image/end_screen.png")).getImage(); // °ÔÀÓ Á¾·á
-	Image endScreen2 = new ImageIcon(getClass().getClassLoader().getResource("image/game_clear.png")).getImage(); // °ÔÀÓ Á¾·á
-	Image player = new ImageIcon(getClass().getClassLoader().getResource("image/Ree2.gif")).getImage(); // ºÓÀº¸®ÀÚ¸ù
-	Image player2 = new ImageIcon(getClass().getClassLoader().getResource("image/R2.png")).getImage(); // °ËÀº¸®ÀÚ¸ù
-	Image Fire = new ImageIcon(getClass().getClassLoader().getResource("image/Fire.png")).getImage(); // ºÒ
-	Image Fire2 = new ImageIcon(getClass().getClassLoader().getResource("image/ÆÄ¶õºÒ.png")).getImage(); // ºÒ
-	Image enemy1 = new ImageIcon(getClass().getClassLoader().getResource("image/ÇÇÁÔ.gif")).getImage(); // ÇÇÁÔ
-	Image enemy2 = new ImageIcon(getClass().getClassLoader().getResource("image/¸Á³ª´¨.gif")).getImage(); // ¸Á³ª´¨
-	Image enemy3 = new ImageIcon(getClass().getClassLoader().getResource("image/ÇÁ¸®Á®.gif")).getImage(); // ÇÁ¸®Á®
-	Image heart1 = new ImageIcon(getClass().getClassLoader().getResource("image/HEART.png")).getImage(); // ÇÏÆ®
-	Image[] itemList = { new ImageIcon(getClass().getClassLoader().getResource("image/HEART1.png")).getImage(), // ¾ÆÀÌÅÛ ÇÏÆ®
-			new ImageIcon(getClass().getClassLoader().getResource("image/stone.png")).getImage() }; // ¾ÆÀÌÅÛ ½ºÅæ
+	// ì´ë¯¸ì§€íŒŒì¼
+	Image mainScreen = new ImageIcon(getClass().getClassLoader().getResource("image/main_Screen.png")).getImage(); // ê²Œì„ì‹œì‘í™”ë©´	
+	Image explainScreen = new ImageIcon(getClass().getClassLoader().getResource("image/loading_screen.png")).getImage(); // ì„¤ëª…í™”ë©´
+	Image explainScreen2 = new ImageIcon(getClass().getClassLoader().getResource("image/loading_screen2.png")).getImage(); // ì„¤ëª…í™”ë©´
+	Image gameScreen = new ImageIcon(getClass().getClassLoader().getResource("image/main_Screen1.png")).getImage(); // ê²Œì„í™”ë©´		
+	Image endScreen = new ImageIcon(getClass().getClassLoader().getResource("image/end_screen.png")).getImage(); // ê²Œì„ ì¢…ë£Œ
+	Image endScreen2 = new ImageIcon(getClass().getClassLoader().getResource("image/game_clear.png")).getImage(); // ê²Œì„ ì¢…ë£Œ
+	Image player = new ImageIcon(getClass().getClassLoader().getResource("image/Ree2.gif")).getImage(); // ë¶‰ì€ë¦¬ìëª½
+	Image player2 = new ImageIcon(getClass().getClassLoader().getResource("image/R2.png")).getImage(); // ê²€ì€ë¦¬ìëª½
+	Image Fire = new ImageIcon(getClass().getClassLoader().getResource("image/Fire.png")).getImage(); // ë¶ˆ
+	Image Fire2 = new ImageIcon(getClass().getClassLoader().getResource("image/íŒŒë€ë¶ˆ.png")).getImage(); // ë¶ˆ
+	Image enemy1 = new ImageIcon(getClass().getClassLoader().getResource("image/í”¼ì£¤.gif")).getImage(); // í”¼ì£¤
+	Image enemy2 = new ImageIcon(getClass().getClassLoader().getResource("image/ë§ë‚˜ë‡½.gif")).getImage(); // ë§ë‚˜ë‡½
+	Image enemy3 = new ImageIcon(getClass().getClassLoader().getResource("image/í”„ë¦¬ì ¸.gif")).getImage(); // í”„ë¦¬ì ¸
+	Image heart1 = new ImageIcon(getClass().getClassLoader().getResource("image/HEART.png")).getImage(); // í•˜íŠ¸
+	Image[] itemList = { new ImageIcon(getClass().getClassLoader().getResource("image/HEART1.png")).getImage(), // ì•„ì´í…œ í•˜íŠ¸
+			new ImageIcon(getClass().getClassLoader().getResource("image/stone.png")).getImage() }; // ì•„ì´í…œ ìŠ¤í†¤
 
 	private Image bImage;
 	private Graphics screenGraphics;
 
-	private boolean isMainScreen, isExplainScreen, isExplainScreen2, isGameScreen, isFinishScreen, isFinishScreen2; // È­¸éÀüÈ¯À» À§ÇÑ boolean ÀÚ·áÇü
+	private boolean isMainScreen, isExplainScreen, isExplainScreen2, isGameScreen, isFinishScreen, isFinishScreen2; // í™”ë©´ì „í™˜ì„ ìœ„í•œ boolean ìë£Œí˜•
 																													 
 																													
 																													
 																													 
-	private boolean isplayer, isplayer1; // ÇÃ·¹ÀÌ¾î º¯°æÀ» À§ÇÑ ÀÚ·áÇü boolean
+	private boolean isplayer, isplayer1; // í”Œë ˆì´ì–´ ë³€ê²½ì„ ìœ„í•œ ìë£Œí˜• boolean
 
-	static int DRAGON_WIDTH = 100; // µå·¡°ï °¡·ÎÅ©±â
-	static int DRAGON_HEIGHT = 120; // µå·¡°ï ¼¼·ÎÅ©±â
-	static int PANEL_WIDTH = 800; // ÆĞ³Î °¡·Î Å©±â
-	static int PANEL_HEIGHT = 900; // ÆĞ³Î ¼¼·Î Å©±â
+	static int DRAGON_WIDTH = 100; // ë“œë˜ê³¤ ê°€ë¡œí¬ê¸°
+	static int DRAGON_HEIGHT = 120; // ë“œë˜ê³¤ ì„¸ë¡œí¬ê¸°
+	static int PANEL_WIDTH = 800; // íŒ¨ë„ ê°€ë¡œ í¬ê¸°
+	static int PANEL_HEIGHT = 900; // íŒ¨ë„ ì„¸ë¡œ í¬ê¸°
 
-	static int FRAME_WIDTH = PANEL_WIDTH; // ÇÁ·¹ÀÓÇÁ±â¶û ÆĞ³ÎÅ©±â¶û °°µµ·Ï ÇÏ±â
+	static int FRAME_WIDTH = PANEL_WIDTH; // í”„ë ˆì„í”„ê¸°ë‘ íŒ¨ë„í¬ê¸°ë‘ ê°™ë„ë¡ í•˜ê¸°
 	static int FRAME_HEIGHT = PANEL_HEIGHT;
 
-	ArrayList<Dragon> listAP = new ArrayList<Dragon>(); // µå·¡°ï °´Ã¼
-	ArrayList<Attack> listAT = new ArrayList<Attack>(); // °ø°İ °´Ã¼
-	ArrayList<Attack2> listAT2 = new ArrayList<Attack2>(); // °ø°İ °´Ã¼ µÎ¹øÂ° ºÒ²É
-	ArrayList<MAttack2> listAM2 = new ArrayList<MAttack2>(); // ÀûÀÌ °ø°İÇÏ´Â °´Ã¼
-	ArrayList<MAttack3> listAM3 = new ArrayList<MAttack3>(); // ÀûÀÌ °ø°İÇÏ´Â °´Ã¼
-	ArrayList<Pijeon> listM1 = new ArrayList<Pijeon>();// Àû1 °´Ã¼
-	ArrayList<Mang2> listM2 = new ArrayList<Mang2>();// Àû2 °´Ã¼
-	ArrayList<Freeja> listM3 = new ArrayList<Freeja>();// Àû3 °´Ã¼
+	ArrayList<Dragon> listAP = new ArrayList<Dragon>(); // ë“œë˜ê³¤ ê°ì²´
+	ArrayList<Attack> listAT = new ArrayList<Attack>(); // ê³µê²© ê°ì²´
+	ArrayList<Attack2> listAT2 = new ArrayList<Attack2>(); // ê³µê²© ê°ì²´ ë‘ë²ˆì§¸ ë¶ˆê½ƒ
+	ArrayList<MAttack2> listAM2 = new ArrayList<MAttack2>(); // ì ì´ ê³µê²©í•˜ëŠ” ê°ì²´
+	ArrayList<MAttack3> listAM3 = new ArrayList<MAttack3>(); // ì ì´ ê³µê²©í•˜ëŠ” ê°ì²´
+	ArrayList<Pijeon> listM1 = new ArrayList<Pijeon>();// ì 1 ê°ì²´
+	ArrayList<Mang2> listM2 = new ArrayList<Mang2>();// ì 2 ê°ì²´
+	ArrayList<Freeja> listM3 = new ArrayList<Freeja>();// ì 3 ê°ì²´
 
-	ArrayList<Item> listI = new ArrayList<Item>(); // ¾ÆÀÌÅÛ °´Ã¼
-	ArrayList<Heart> listH = new ArrayList<Heart>(); // ÇÏÆ® °´Ã¼
+	ArrayList<Item> listI = new ArrayList<Item>(); // ì•„ì´í…œ ê°ì²´
+	ArrayList<Heart> listH = new ArrayList<Heart>(); // í•˜íŠ¸ ê°ì²´
 
 
-	// »èÁ¦ °´Ã¼
+	// ì‚­ì œ ê°ì²´
 	ArrayList<Attack> ATRemove = new ArrayList<>();
 	ArrayList<Attack2> AT2Remove = new ArrayList<>();
 	ArrayList<Dragon> AP1Remove = new ArrayList<>();
@@ -114,7 +114,7 @@ public class DragonFlight extends JFrame {
 	ArrayList<Item> IRemove = new ArrayList<>();
 	ArrayList<Heart> HRemove = new ArrayList<>();
 
-	// Å°º¸µå ¿òÁ÷ÀÓ ÀÚ¿¬½º·´°Ô ÇÏ±â À§ÇÔ
+	// í‚¤ë³´ë“œ ì›€ì§ì„ ìì—°ìŠ¤ëŸ½ê²Œ í•˜ê¸° ìœ„í•¨
 	boolean moveUp = false;
 	boolean moveDown = false;
 	boolean moveRight = false;
@@ -122,59 +122,59 @@ public class DragonFlight extends JFrame {
 	boolean checkSpace = false;
 	boolean checkShift = false;
 
-	// »ı¼ºÀÚ - Frame ±âº»¼³Á¤, ÆĞ³Î Ãß°¡
+	// ìƒì„±ì - Frame ê¸°ë³¸ì„¤ì •, íŒ¨ë„ ì¶”ê°€
 	DragonFlight() {
 
 
-		// Å¸ÀÌ¸Ó »ı¼º
+		// íƒ€ì´ë¨¸ ìƒì„±
 		t = new Timer(10, new Draw());
 		at = new Timer(100, new MakeA());
 		at2 = new Timer(100, new MakeB());
 
-		// ÆĞ³Î
+		// íŒ¨ë„
 		panel = new DrawPanel();
 		panel.addKeyListener(panel);
 
-		nameLabel = new JLabel("NAME: " + player_name);
+//		nameLabel = new JLabel("NAME: " + player_name);
 		scoreLabel = new JLabel("SCORE: " + score);
 		levelLabel = new JLabel("LEVEL: " + level);
 
-		// ¶óº§ ±Û¾¾Ã¼
-		nameLabel.setFont(new Font("FTLAB Hoony", Font.BOLD, 20));
+		// ë¼ë²¨ ê¸€ì”¨ì²´
+//		nameLabel.setFont(new Font("FTLAB Hoony", Font.BOLD, 20));
 		scoreLabel.setFont(new Font("FTLAB Hoony", Font.BOLD, 20));
 		levelLabel.setFont(new Font("FTLAB Hoony", Font.BOLD, 20));
 
 		panel.setLayout(null);
 
-		// À§Ä¡ ¼±Á¤//setBounds(x,y,°¡·Î,¼¼·Î) Àı´ëÀ§Ä¡
-		nameLabel.setBounds(600, 800, 150, 50); // ÀÌ¸§
-		scoreLabel.setBounds(450, 800, 150, 50); // Á¡¼ö
-		levelLabel.setBounds(600, 750, 150, 50); // ·¹º§
+		// ìœ„ì¹˜ ì„ ì •//setBounds(x,y,ê°€ë¡œ,ì„¸ë¡œ) ì ˆëŒ€ìœ„ì¹˜
+//		nameLabel.setBounds(600, 800, 150, 50); // ì´ë¦„
+		scoreLabel.setBounds(450, 800, 150, 50); // ì ìˆ˜
+		levelLabel.setBounds(600, 750, 150, 50); // ë ˆë²¨
 
-		// °¡¿îµ¥ Á¤·Ä
-		nameLabel.setHorizontalAlignment(JLabel.CENTER);
+		// ê°€ìš´ë° ì •ë ¬
+//		nameLabel.setHorizontalAlignment(JLabel.CENTER);
 		scoreLabel.setHorizontalAlignment(JLabel.CENTER);
 		levelLabel.setHorizontalAlignment(JLabel.CENTER);
 
-		// »ö ¼±Á¤
-		nameLabel.setForeground(Color.white);
+		// ìƒ‰ ì„ ì •
+//		nameLabel.setForeground(Color.white);
 		scoreLabel.setForeground(Color.white);
 		levelLabel.setForeground(Color.white);
 
 		this.add(panel);
-		this.setSize(FRAME_WIDTH, FRAME_HEIGHT); // ÇÁ·¹ÀÓ»çÀÌÁî Á¤ÇÏ±â
+		this.setSize(FRAME_WIDTH, FRAME_HEIGHT); // í”„ë ˆì„ì‚¬ì´ì¦ˆ ì •í•˜ê¸°
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("REZAMONG");
-		this.setResizable(false);// Å©±âÁ¶Àı ¸¶À½´ë·Î ¸øÇÏ°Ô
+		this.setResizable(false);// í¬ê¸°ì¡°ì ˆ ë§ˆìŒëŒ€ë¡œ ëª»í•˜ê²Œ
 
-		init(); // booleanÇüÀ» ÅëÇØ mainScreen±×·ÁÁÖ±â
-//		name();// ÀÌ¸§ ÀúÀå
-		Dragoninit(); // µå·¡°ï ÀúÀå
+		init(); // booleaní˜•ì„ í†µí•´ mainScreenê·¸ë ¤ì£¼ê¸°
+//		name();// ì´ë¦„ ì €ì¥
+		Dragoninit(); // ë“œë˜ê³¤ ì €ì¥
 
 	}
 
-	// booleanÇüÀ» ÅëÇØ È­¸é±×·ÁÁÖ±â
+	// booleaní˜•ì„ í†µí•´ í™”ë©´ê·¸ë ¤ì£¼ê¸°
 	public void init() {
 		isMainScreen = true;
 		isExplainScreen = false;
@@ -183,7 +183,7 @@ public class DragonFlight extends JFrame {
 		isFinishScreen = false;
 		isFinishScreen2 = false;
 	}
-	// µå·¡°ïÀÇ °´Ã¼ º¯È¯À» À§ÇØ Ã³À½ °´Ã¼¸¦ true, µÎ¹øÂ° °´Ã¼¸¦ false
+	// ë“œë˜ê³¤ì˜ ê°ì²´ ë³€í™˜ì„ ìœ„í•´ ì²˜ìŒ ê°ì²´ë¥¼ true, ë‘ë²ˆì§¸ ê°ì²´ë¥¼ false
 	public void Dragoninit() {
 		isplayer = true;
 		isplayer1 = false;
@@ -191,7 +191,7 @@ public class DragonFlight extends JFrame {
 	}
 
 
-	// È­¸é ÀüÈ¯
+	// í™”ë©´ ì „í™˜
 	public void screenDraw(Graphics g) {
 		if (isMainScreen == true) {
 			g.drawImage(mainScreen, 0, 0, null);
@@ -220,14 +220,14 @@ public class DragonFlight extends JFrame {
 
 	class Draw implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			repaint(); // ´Ù½Ã ±×·ÁÁÙ¶§¸¶´Ù
+			repaint(); // ë‹¤ì‹œ ê·¸ë ¤ì¤„ë•Œë§ˆë‹¤
 			count++;// count++
 			int x;
 			int y;
 
-			// µå·¡°ïÀÇ ¿òÁ÷ÀÓ
+			// ë“œë˜ê³¤ì˜ ì›€ì§ì„
 			for (Dragon ap : listAP) {
-				// ¹æÇâÅ°·Î ¿òÁ÷ÀÓ Á¦¾î
+				// ë°©í–¥í‚¤ë¡œ ì›€ì§ì„ ì œì–´
 				if (moveUp == true) {
 					if (ap.y - 10 > 0)
 						ap.moveUP();
@@ -242,14 +242,14 @@ public class DragonFlight extends JFrame {
 						ap.moveLEFT();
 				}
 
-				if (checkSpace == true) { // ½ºÆäÀÌ½º¹Ù¸¦ ÅëÇÑ °ø°İ
+				if (checkSpace == true) { // ìŠ¤í˜ì´ìŠ¤ë°”ë¥¼ í†µí•œ ê³µê²©
 					at.start();
 					
 				} else if (checkSpace == false) {
 					at.stop();
 
 				}
-				if (checkShift == true) { // ½ºÆäÀÌ½º¹Ù¸¦ ÅëÇÑ °ø°İ
+				if (checkShift == true) { // ìŠ¤í˜ì´ìŠ¤ë°”ë¥¼ í†µí•œ ê³µê²©
 					at2.start();
 
 				} else if (checkShift == false) {
@@ -259,7 +259,7 @@ public class DragonFlight extends JFrame {
 
 			}
 
-			// 3Á¡ÀÌ»ó ·¹º§ 2, 7Á¡ÀÌ»ó ·¹º§3
+			// 3ì ì´ìƒ ë ˆë²¨ 2, 7ì ì´ìƒ ë ˆë²¨3
 			if (score >= 0)
 				level = 1;
 			if (score >= 3)
@@ -267,28 +267,28 @@ public class DragonFlight extends JFrame {
 			if (score >= 7)
 				level = 3;
 			
-			// ÇÇÁÔÃß°¡
+			// í”¼ì£¤ì¶”ê°€
 			if (count % 100 == 0) {
 				x = (int) (Math.random() * 700);
 				listM1.add(new Pijeon(x, 0, enemy1));
 			} 
-			//¸Á³ª´¨Ãß°¡
+			//ë§ë‚˜ë‡½ì¶”ê°€
 			if (count % 200 == 0 && level > 1) {
 				x = (int) (Math.random() * PANEL_WIDTH);
 				y = (int) (Math.random() * PANEL_HEIGHT);
 				listM2.add(new Mang2(x, y, enemy2));
 			}
-			//ÇÁ¸®Á®Ãß°¡
+			//í”„ë¦¬ì ¸ì¶”ê°€
 			if (count % 250 == 0 && level > 2) {
 				x = (int) (Math.random() * PANEL_HEIGHT);
 				y = (int) (Math.random() * PANEL_WIDTH);
 				listM3.add(new Freeja(x, y, enemy3));
 			}
 
-			// ¸ó½ºÅÍ°¡ ÇÏ´Â °ø°İ listÃß°¡
+			// ëª¬ìŠ¤í„°ê°€ í•˜ëŠ” ê³µê²© listì¶”ê°€
 			if (count % 200 == 0 && CountE > 1) {
 				
-				if (level > 1) { // ·¹º§2ÀÌ¸é ¸Á³ª´¨ Ãß°¡
+				if (level > 1) { // ë ˆë²¨2ì´ë©´ ë§ë‚˜ë‡½ ì¶”ê°€
 					for (Mang2 M2 : listM2) {
 						x = M2.getX();
 						y = M2.getY();
@@ -296,7 +296,7 @@ public class DragonFlight extends JFrame {
 					}
 
 				}
-				if (level > 2) { // ·¹º§3ÀÌ¸é ÇÁ¸®Á® Ãß°¡
+				if (level > 2) { // ë ˆë²¨3ì´ë©´ í”„ë¦¬ì ¸ ì¶”ê°€
 					for (Freeja M3 : listM3) {
 						x = M3.getX();
 						y = M3.getY();
@@ -316,7 +316,7 @@ public class DragonFlight extends JFrame {
 			int gY;
 			count++;
 
-			// ¸®ÀÚ¸ù ÇÏ´Â °ø°İ listÃß°¡
+			// ë¦¬ìëª½ í•˜ëŠ” ê³µê²© listì¶”ê°€
 			for (Dragon AP : listAP) {
 				gX = AP.getX();
 				gY = AP.getY();
@@ -335,7 +335,7 @@ public class DragonFlight extends JFrame {
 			int gY;
 			count++;
 
-			// ¸®ÀÚ¸ù ÇÏ´Â °ø°İ listÃß°¡
+			// ë¦¬ìëª½ í•˜ëŠ” ê³µê²© listì¶”ê°€
 			for (Dragon AP : listAP) {
 				gX = AP.getX();
 				gY = AP.getY();
@@ -355,12 +355,12 @@ public class DragonFlight extends JFrame {
 
 		public void paintComponent(Graphics g) {
 
-			bImage = createImage(PANEL_WIDTH, PANEL_HEIGHT); // È­¸é Ã¤¿ì±â
+			bImage = createImage(PANEL_WIDTH, PANEL_HEIGHT); // í™”ë©´ ì±„ìš°ê¸°
 			screenGraphics = bImage.getGraphics();
 			screenDraw(screenGraphics);
 			g.drawImage(bImage, 0, 0, null);
 
-			// »ı¸í·ÂÀÌ 0ÀÌ µÇ¾úÀ»¶§ °ÔÀÓ Á¾·á È­¸é
+			// ìƒëª…ë ¥ì´ 0ì´ ë˜ì—ˆì„ë•Œ ê²Œì„ ì¢…ë£Œ í™”ë©´
 			if (INDEX == 0 || score == 0) {
 				isGameScreen = false;
 				isFinishScreen = true;
@@ -417,16 +417,16 @@ public class DragonFlight extends JFrame {
 				for (Dragon a : AP1Remove)
 					listAP.remove(a);
 
-				nameLabel.setFont(new Font("FTLAB Hoony", Font.BOLD, 30));
+//				nameLabel.setFont(new Font("FTLAB Hoony", Font.BOLD, 30));
 				scoreLabel.setFont(new Font("FTLAB Hoony", Font.BOLD, 30));
 				levelLabel.setFont(new Font("FTLAB Hoony", Font.BOLD, 30));
 
-				// À§Ä¡ ÀçÁ¤·Ä // setBounds(x,y,°¡·Î,¼¼·Î) Àı´ëÀ§Ä¡
-				nameLabel.setBounds(450, 600, 250, 100);
+				// ìœ„ì¹˜ ì¬ì •ë ¬ // setBounds(x,y,ê°€ë¡œ,ì„¸ë¡œ) ì ˆëŒ€ìœ„ì¹˜
+//				nameLabel.setBounds(450, 600, 250, 100);
 				scoreLabel.setBounds(450, 650, 250, 100); 
 				levelLabel.setBounds(450, 700, 250, 100);
 
-				nameLabel.setHorizontalAlignment(JLabel.CENTER);
+//				nameLabel.setHorizontalAlignment(JLabel.CENTER);
 				scoreLabel.setHorizontalAlignment(JLabel.CENTER);
 				levelLabel.setHorizontalAlignment(JLabel.CENTER);
 
@@ -434,11 +434,11 @@ public class DragonFlight extends JFrame {
 
 				t.stop();
 
-				// finishScreen È­¸é ±×·ÁÁÖ±â
+				// finishScreen í™”ë©´ ê·¸ë ¤ì£¼ê¸°
 				g.drawImage(endScreen, 0, 0, PANEL_WIDTH, PANEL_HEIGHT, null);
 
 			}
-			// score15°¡ µÇ¸é °ÔÀÓ Á¾·á È­¸é
+			// score15ê°€ ë˜ë©´ ê²Œì„ ì¢…ë£Œ í™”ë©´
 			if (score == 15) {
 				isGameScreen = false;
 				isFinishScreen2 = true;
@@ -495,20 +495,20 @@ public class DragonFlight extends JFrame {
 				for (Dragon a : AP1Remove)
 					listAP.remove(a);
 
-				nameLabel.setFont(new Font("FTLAB Hoony", Font.BOLD, 30));
+//				nameLabel.setFont(new Font("FTLAB Hoony", Font.BOLD, 30));
 				scoreLabel.setFont(new Font("FTLAB Hoony", Font.BOLD, 30));
 				levelLabel.setFont(new Font("FTLAB Hoony", Font.BOLD, 30));
 
-				// À§Ä¡ ÀçÁ¤·Ä
-				nameLabel.setBounds(450, 600, 250, 100);
-				scoreLabel.setBounds(450, 650, 250, 100); // setBounds(x,y,°¡·Î,¼¼·Î) Àı´ëÀ§Ä¡
+				// ìœ„ì¹˜ ì¬ì •ë ¬
+//				nameLabel.setBounds(450, 600, 250, 100);
+				scoreLabel.setBounds(450, 650, 250, 100); // setBounds(x,y,ê°€ë¡œ,ì„¸ë¡œ) ì ˆëŒ€ìœ„ì¹˜
 				levelLabel.setBounds(450, 700, 250, 100);
 
-				nameLabel.setHorizontalAlignment(JLabel.CENTER);
+//				nameLabel.setHorizontalAlignment(JLabel.CENTER);
 				scoreLabel.setHorizontalAlignment(JLabel.CENTER);
 				levelLabel.setHorizontalAlignment(JLabel.CENTER);
 				
-				nameLabel.setForeground(Color.black);
+//				nameLabel.setForeground(Color.black);
 				scoreLabel.setForeground(Color.black);
 				levelLabel.setForeground(Color.black);
 
@@ -516,15 +516,15 @@ public class DragonFlight extends JFrame {
 
 				t.stop();
 
-				// finishScreen È­¸é ±×·ÁÁÖ±â
+				// finishScreen í™”ë©´ ê·¸ë ¤ì£¼ê¸°
 				g.drawImage(endScreen2, 0, 0, PANEL_WIDTH, PANEL_HEIGHT, null);
 
 			}
 
-			// À§Ä¡ ÀçÁ¤·Ä
+			// ìœ„ì¹˜ ì¬ì •ë ¬
 
-			// °´Ã¼ »ı¼º
-			// ÇÏÆ® ±×¸² ±×¸®±â
+			// ê°ì²´ ìƒì„±
+			// í•˜íŠ¸ ê·¸ë¦¼ ê·¸ë¦¬ê¸°
 			for (Heart h : listH) {
 				h.drawH(g);
 			}
@@ -533,16 +533,16 @@ public class DragonFlight extends JFrame {
 				a.drawFire(g);
 			}
 
-			// µå·¡°ï ±×¸² ±×¸®±â
+			// ë“œë˜ê³¤ ê·¸ë¦¼ ê·¸ë¦¬ê¸°
 			for (Dragon ap1 : listAP) {
 				ap1.draw(g);
 			}
-			// µå·¡°ï 2¹ø¤Š ±×¸®±â
+			// ë“œë˜ê³¤ 2ë²ˆì¨° ê·¸ë¦¬ê¸°
 			for (Dragon ap1 : listAP) {
 				ap1.draw2(g);
 			}
 
-			// °ø°İ ±×¸²±×¸®±â
+			// ê³µê²© ê·¸ë¦¼ê·¸ë¦¬ê¸°
 			for (Attack a : listAT) {
 				if (a.getY() < 0)
 					ATRemove.add(a);
@@ -562,13 +562,13 @@ public class DragonFlight extends JFrame {
 					a.moveA();
 				}
 			}
-			// ¸Á³ª´¨°ø°İ
+			// ë§ë‚˜ë‡½ê³µê²©
 			if (listAM2.isEmpty() != true)
 				for (MAttack2 ma : listAM2) {
 					ma.drawMA2(g);
 					ma.moveA();
 				}
-			// ÇÁ¸®Á®°ø°İ
+			// í”„ë¦¬ì ¸ê³µê²©
 			if (listAM3.isEmpty() != true)
 				for (MAttack3 ma : listAM3) {
 					ma.drawMA3(g);
@@ -578,7 +578,7 @@ public class DragonFlight extends JFrame {
 			//
 			for (Dragon ap1 : listAP) {
 
-				for (MAttack2 ma : listAM2) {// 2¹øÂ° Æ÷ÄÏ¸ó
+				for (MAttack2 ma : listAM2) {// 2ë²ˆì§¸ í¬ì¼“ëª¬
 					if (ma.getY() >= ap1.getY() && ma.getX() >= ap1.getX() && ma.getX() <= ap1.getX() + 60
 							&& ma.getY() < ap1.getY() + 60) {
 						MARemove2.add(ma);
@@ -587,7 +587,7 @@ public class DragonFlight extends JFrame {
 					}
 
 				}
-				for (MAttack3 ma : listAM3) {// 3¹øÂ° Æ÷ÄÏ¸ó
+				for (MAttack3 ma : listAM3) {// 3ë²ˆì§¸ í¬ì¼“ëª¬
 					if (ma.getY() >= ap1.getY() && ma.getX() >= ap1.getX() && ma.getX() <= ap1.getX() + 50
 							&& ma.getY() < ap1.getY() + 50) {
 						MARemove3.add(ma);
@@ -596,7 +596,7 @@ public class DragonFlight extends JFrame {
 					}
 				}
 
-				// ÇÇÁÔÀÌ ¸®ÀÚ¸ùÀÇ °ø°İÀ» ¹Ş¾ÒÀ»¶§, hp--, hp=0 -> 3ºĞÀÇ È®·ü ¾ÆÀÌÅÛ »ı¼º, ¾ÆÀÌÅÛÀÇ Á¾·ù´Â 2°¡Áö
+				// í”¼ì£¤ì´ ë¦¬ìëª½ì˜ ê³µê²©ì„ ë°›ì•˜ì„ë•Œ, hp--, hp=0 -> 3ë¶„ì˜ í™•ë¥  ì•„ì´í…œ ìƒì„±, ì•„ì´í…œì˜ ì¢…ë¥˜ëŠ” 2ê°€ì§€
 				for (Pijeon m : listM1) {
 					for (Attack a : listAT) {
 
@@ -608,20 +608,20 @@ public class DragonFlight extends JFrame {
 								score++;
 								MRemove1.add(m);
 
-								// ¾ÆÀÌÅÛ 3ºĞÀÇ 1ÀÇ È®·ü·Î »ı¼º
+								// ì•„ì´í…œ 3ë¶„ì˜ 1ì˜ í™•ë¥ ë¡œ ìƒì„±
 								int rand = (int) (Math.random() * 3);
 								if (rand == 2) {
 									int rand2 = (int) (Math.random() * 2);
 									if (rand2 == 0)
-										listI.add(new Item(m.getX(), m.getY(), rand2, itemList[rand2])); // ÇÏÆ® Ãß°¡
+										listI.add(new Item(m.getX(), m.getY(), rand2, itemList[rand2])); // í•˜íŠ¸ ì¶”ê°€
 									else if (rand2 == 1)
-										listI.add(new Item(m.getX(), m.getY(), rand2, itemList[rand2])); // ½ºÅæ
+										listI.add(new Item(m.getX(), m.getY(), rand2, itemList[rand2])); // ìŠ¤í†¤
 								}
 							}
 						}
 					}
 
-				} // ¸Á³ª´¨ÀÌ ¸®ÀÚ¸ùÀÇ °ø°İÀ» ¹Ş¾ÒÀ»¶§, hp--, hp=0 -> 3ºĞÀÇ È®·ü ¾ÆÀÌÅÛ »ı¼º, ¾ÆÀÌÅÛÀÇ Á¾·ù´Â 2°¡Áö
+				} // ë§ë‚˜ë‡½ì´ ë¦¬ìëª½ì˜ ê³µê²©ì„ ë°›ì•˜ì„ë•Œ, hp--, hp=0 -> 3ë¶„ì˜ í™•ë¥  ì•„ì´í…œ ìƒì„±, ì•„ì´í…œì˜ ì¢…ë¥˜ëŠ” 2ê°€ì§€
 				for (Mang2 m2 : listM2) {
 					for (Attack a : listAT) {
 
@@ -645,7 +645,7 @@ public class DragonFlight extends JFrame {
 							}
 						}
 					}
-				} // ÇÁ¸®Á®°¡ ¸®ÀÚ¸ùÀÇ °ø°İÀ» ¹Ş¾ÒÀ»¶§, hp--, hp=0 -> 3ºĞÀÇ È®·ü ¾ÆÀÌÅÛ »ı¼º, ¾ÆÀÌÅÛÀÇ Á¾·ù´Â 2°¡Áö
+				} // í”„ë¦¬ì ¸ê°€ ë¦¬ìëª½ì˜ ê³µê²©ì„ ë°›ì•˜ì„ë•Œ, hp--, hp=0 -> 3ë¶„ì˜ í™•ë¥  ì•„ì´í…œ ìƒì„±, ì•„ì´í…œì˜ ì¢…ë¥˜ëŠ” 2ê°€ì§€
 
 				for (Freeja m2 : listM3) {
 					for (Attack a : listAT) {
@@ -671,7 +671,7 @@ public class DragonFlight extends JFrame {
 						}
 					}
 				}
-				// ÇÇÁÔÀÌ ¸®ÀÚ¸ùÀÇ °ø°İÀ» ¹Ş¾ÒÀ»¶§, hp--, hp=0 -> 3ºĞÀÇ È®·ü ¾ÆÀÌÅÛ »ı¼º, ¾ÆÀÌÅÛÀÇ Á¾·ù´Â 2°¡Áö
+				// í”¼ì£¤ì´ ë¦¬ìëª½ì˜ ê³µê²©ì„ ë°›ì•˜ì„ë•Œ, hp--, hp=0 -> 3ë¶„ì˜ í™•ë¥  ì•„ì´í…œ ìƒì„±, ì•„ì´í…œì˜ ì¢…ë¥˜ëŠ” 2ê°€ì§€
 				for (Pijeon m : listM1) {
 					for (Attack2 a : listAT2) {
 
@@ -683,20 +683,20 @@ public class DragonFlight extends JFrame {
 								score++;
 								MRemove1.add(m);
 
-								// ¾ÆÀÌÅÛ 3ºĞÀÇ 1ÀÇ È®·ü·Î »ı¼º
+								// ì•„ì´í…œ 3ë¶„ì˜ 1ì˜ í™•ë¥ ë¡œ ìƒì„±
 								int rand = (int) (Math.random() * 3);
 								if (rand == 2) {
 									int rand2 = (int) (Math.random() * 2);
 									if (rand2 == 0)
-										listI.add(new Item(m.getX(), m.getY(), rand2, itemList[rand2])); // ÇÏÆ® Ãß°¡
+										listI.add(new Item(m.getX(), m.getY(), rand2, itemList[rand2])); // í•˜íŠ¸ ì¶”ê°€
 									else if (rand2 == 1)
-										listI.add(new Item(m.getX(), m.getY(), rand2, itemList[rand2])); // ½ºÅæ
+										listI.add(new Item(m.getX(), m.getY(), rand2, itemList[rand2])); // ìŠ¤í†¤
 								}
 							}
 						}
 					}
 
-				} // ¸Á³ª´¨ÀÌ ¸®ÀÚ¸ùÀÇ °ø°İÀ» ¹Ş¾ÒÀ»¶§, hp--, hp=0 -> 3ºĞÀÇ È®·ü ¾ÆÀÌÅÛ »ı¼º, ¾ÆÀÌÅÛÀÇ Á¾·ù´Â 2°¡Áö
+				} // ë§ë‚˜ë‡½ì´ ë¦¬ìëª½ì˜ ê³µê²©ì„ ë°›ì•˜ì„ë•Œ, hp--, hp=0 -> 3ë¶„ì˜ í™•ë¥  ì•„ì´í…œ ìƒì„±, ì•„ì´í…œì˜ ì¢…ë¥˜ëŠ” 2ê°€ì§€
 				for (Mang2 m2 : listM2) {
 					for (Attack2 a : listAT2) {
 
@@ -705,7 +705,7 @@ public class DragonFlight extends JFrame {
 							m2.reduceHp();
 
 							if (m2.getHp() <= 0) {
-								score=score+2; //µÎ¹øÂ° Æ÷ÄÏ¸óÀ» ¾ø¾Ö¸é +2Á¡
+								score=score+2; //ë‘ë²ˆì§¸ í¬ì¼“ëª¬ì„ ì—†ì• ë©´ +2ì 
 								MRemove2.add(m2);
 
 								int rand = (int) (Math.random() * 3); // 0~3
@@ -720,7 +720,7 @@ public class DragonFlight extends JFrame {
 							}
 						}
 					}
-				} // ÇÁ¸®Á®°¡ ¸®ÀÚ¸ùÀÇ °ø°İÀ» ¹Ş¾ÒÀ»¶§, hp--, hp=0 -> 3ºĞÀÇ È®·ü ¾ÆÀÌÅÛ »ı¼º, ¾ÆÀÌÅÛÀÇ Á¾·ù´Â 2°¡Áö
+				} // í”„ë¦¬ì ¸ê°€ ë¦¬ìëª½ì˜ ê³µê²©ì„ ë°›ì•˜ì„ë•Œ, hp--, hp=0 -> 3ë¶„ì˜ í™•ë¥  ì•„ì´í…œ ìƒì„±, ì•„ì´í…œì˜ ì¢…ë¥˜ëŠ” 2ê°€ì§€
 
 				for (Freeja m2 : listM3) {
 					for (Attack2 a : listAT2) {
@@ -730,7 +730,7 @@ public class DragonFlight extends JFrame {
 							m2.reduceHp();
 
 							if (m2.getHp() <= 0) {
-								score=score+3; // ¼¼¹øÂ° Æ÷ÄÏ¸óÀ» ¾ø¾Ö¸é +3Á¡
+								score=score+3; // ì„¸ë²ˆì§¸ í¬ì¼“ëª¬ì„ ì—†ì• ë©´ +3ì 
 								MRemove3.add(m2);
 
 								int rand = (int) (Math.random() * 3); // 0~3
@@ -747,23 +747,23 @@ public class DragonFlight extends JFrame {
 					}
 				}
 
-				// ¾ÆÀÌÅÛ »ı¼º
+				// ì•„ì´í…œ ìƒì„±
 				for (Item item : listI) {
 					item.draw(g);
 					item.move();
 
-					// °Å¸® °è»ê
+					// ê±°ë¦¬ ê³„ì‚°
 					if (ap1.distance(item.getXI(), item.getYI()) <= 40) {
 						IRemove.add(item);
-						if (item.getType() == 0) { // Ã¹¹øÂ° ¾ÆÀÌÅÛÀÎ »ı¸í·Â Ãß°¡ÇÏ±â
+						if (item.getType() == 0) { // ì²«ë²ˆì§¸ ì•„ì´í…œì¸ ìƒëª…ë ¥ ì¶”ê°€í•˜ê¸°
 							listH.add(new Heart(INDEX));
 							if (INDEX < 5)
-								INDEX++; // »ı¸í·Â Ãß°¡
+								INDEX++; // ìƒëª…ë ¥ ì¶”ê°€
 						}
 					}
 
 					if (ap1.distance(item.getXI(), item.getYI()) <= 40 && item.getType() == 1) {
-						isplayer = false; //2¹ø ½ºÅæÀ» ¸ÔÀ¸¸é ÇÃ·¹ÀÌ¾î(°´Ã¼°¡ ¹Ù²ñ.)
+						isplayer = false; //2ë²ˆ ìŠ¤í†¤ì„ ë¨¹ìœ¼ë©´ í”Œë ˆì´ì–´(ê°ì²´ê°€ ë°”ë€œ.)
 						isplayer1 = true;
 			
 					}
@@ -771,7 +771,7 @@ public class DragonFlight extends JFrame {
 
 			}
 
-			// µå·¡°ï°ú ¸ó½ºÅÍ°¡ ¸Â´êÀ¸¸é Á¡¼ö °¨Á¡
+			// ë“œë˜ê³¤ê³¼ ëª¬ìŠ¤í„°ê°€ ë§ë‹¿ìœ¼ë©´ ì ìˆ˜ ê°ì 
 			for (Dragon AP : listAP) {
 				for (Pijeon m : listM1) {
 					m.draw(g);
@@ -787,7 +787,7 @@ public class DragonFlight extends JFrame {
 
 					if (AP.distance(m2.getX() + 18, m2.getY() + 18) <= 50) {
 						MRemove2.add(m2);
-						score=score-2; // 2¹øÂ° Æ÷ÄÏ¸ó°ú ´êÀ¸¸é -2
+						score=score-2; // 2ë²ˆì§¸ í¬ì¼“ëª¬ê³¼ ë‹¿ìœ¼ë©´ -2
 					}
 				}
 				for (Freeja m3 : listM3) {
@@ -796,16 +796,16 @@ public class DragonFlight extends JFrame {
 
 					if (AP.distance(m3.getX() + 20, m3.getY() + 20) <= 50) {
 						MRemove3.add(m3);
-						score=score-3; // 3¹øÂ° Æ÷ÄÏ¸ó°ú ´êÀ¸¸é -3
+						score=score-3; // 3ë²ˆì§¸ í¬ì¼“ëª¬ê³¼ ë‹¿ìœ¼ë©´ -3
 					}
 				}
 			}
 
-			// score°ú level »õ·Î°íÄ§
+			// scoreê³¼ level ìƒˆë¡œê³ ì¹¨
 			scoreLabel.setText("SCORE: " + score);
 			levelLabel.setText("LEVEL: " + level);
 
-			// Á¦°Å
+			// ì œê±°
 			for (Attack a : ATRemove)
 				listAT.remove(a);
 			for (Attack2 a : AT2Remove)
@@ -839,12 +839,12 @@ public class DragonFlight extends JFrame {
 		public void keyTyped(KeyEvent e) {
 		}
 
-		// µå·¡°ï¸¦ ¹æÇâÅ°·Î ÀÌµ¿
+		// ë“œë˜ê³¤ë¥¼ ë°©í–¥í‚¤ë¡œ ì´ë™
 		@Override
 		public void keyPressed(KeyEvent e) {
 			int keycode = e.getKeyCode();
 
-			// ¹æÇâ Å°º¸µå¸¦ ÅëÇØ ¿òÁ÷ÀÓ Á¶Á¤
+			// ë°©í–¥ í‚¤ë³´ë“œë¥¼ í†µí•´ ì›€ì§ì„ ì¡°ì •
 			if (keycode == KeyEvent.VK_UP) {
 				moveUp = true;
 			} else if (keycode == KeyEvent.VK_DOWN) {
@@ -864,11 +864,11 @@ public class DragonFlight extends JFrame {
 			}
 
 
-			// ¿£ÅÍÅ°¸¦ ÅëÇØ È­¸é ¹Ù²Ş
+			// ì—”í„°í‚¤ë¥¼ í†µí•´ í™”ë©´ ë°”ê¿ˆ
 			if (keycode == KeyEvent.VK_ENTER) {
 				CountE++;
 
-				// ½ÃÀÛ È­¸é -> ¼³¸í È­¸é
+				// ì‹œì‘ í™”ë©´ -> ì„¤ëª… í™”ë©´
 				if (CountE == 1) {
 					isMainScreen = false;
 					isExplainScreen = true;
@@ -877,7 +877,7 @@ public class DragonFlight extends JFrame {
 					isFinishScreen = false;
 					isFinishScreen2 = false;
 					t.start();
-				} // ¼³¸í È­¸é µÎ¹øÂ°
+				} // ì„¤ëª… í™”ë©´ ë‘ë²ˆì§¸
 				if (CountE == 2) {
 					isMainScreen = false;
 					isExplainScreen = false;
@@ -886,7 +886,7 @@ public class DragonFlight extends JFrame {
 					isFinishScreen = false;
 					isFinishScreen2 = false;
 				}
-				// ¼³¸í È­¸é -> °ÔÀÓ È­¸é
+				// ì„¤ëª… í™”ë©´ -> ê²Œì„ í™”ë©´
 				if (CountE == 3) {
 					isMainScreen = false;
 					isExplainScreen = false;
@@ -895,24 +895,24 @@ public class DragonFlight extends JFrame {
 					isFinishScreen = false;
 					isFinishScreen2 = false;
 					
-					panel.add(nameLabel);
+//					panel.add(nameLabel);
 					panel.add(scoreLabel);
 					panel.add(levelLabel);
 
-					if (listAP.isEmpty()) // µå·¡°ï »ı¼º À§Ä¡
+					if (listAP.isEmpty()) // ë“œë˜ê³¤ ìƒì„± ìœ„ì¹˜
 						listAP.add(new Dragon(340, 720));
 
-					for (int i = 0; i < INDEX; i++) { // ±âº» »ı¸í·Â = 3°³
+					for (int i = 0; i < INDEX; i++) { // ê¸°ë³¸ ìƒëª…ë ¥ = 3ê°œ
 						listH.add(new Heart(i));
 					}
 				}
-			} else if (keycode == KeyEvent.VK_ESCAPE) { // ESC Å°¸¦ ÅëÇØ Á¾·á
+			} else if (keycode == KeyEvent.VK_ESCAPE) { // ESC í‚¤ë¥¼ í†µí•´ ì¢…ë£Œ
 				System.exit(0);
 
 			}
 		}
 
-		// Å°º¸µå¸¦ ´­·¶´Ù ¶¼¾úÀ» ¶§ ÀÛµ¿ ÁßÁö
+		// í‚¤ë³´ë“œë¥¼ ëˆŒë €ë‹¤ ë–¼ì—ˆì„ ë•Œ ì‘ë™ ì¤‘ì§€
 		@Override
 		public void keyReleased(KeyEvent e) {
 			int keycode = e.getKeyCode();
@@ -942,7 +942,7 @@ public class DragonFlight extends JFrame {
 
 	}
 
-	// µå·¡°ï
+	// ë“œë˜ê³¤
 	class Dragon extends ImageIcon {
 		/**
 		 * 
@@ -965,13 +965,13 @@ public class DragonFlight extends JFrame {
 
 		public void draw(Graphics g) {
 			if (isplayer == true) {
-				g.drawImage(player, x, y, 150, 150, null); // »¡°£ ¸®ÀÚ¸ù
+				g.drawImage(player, x, y, 150, 150, null); // ë¹¨ê°„ ë¦¬ìëª½
 			}
 		}
 
 		public void draw2(Graphics g) {
 			if (isplayer1 == true) {
-				g.drawImage(player2, x, y, 140, 140, null); // °ËÀº ¸®ÀÚ¸ù
+				g.drawImage(player2, x, y, 140, 140, null); // ê²€ì€ ë¦¬ìëª½
 			}
 		}
 
@@ -999,13 +999,13 @@ public class DragonFlight extends JFrame {
 			return y;
 		}
 
-		public double distance(int x, int y) { // ÁßÁ¡°úÀÇ °Å¸®
+		public double distance(int x, int y) { // ì¤‘ì ê³¼ì˜ ê±°ë¦¬
 			return Math.sqrt(Math.pow((this.x + w / 2) - x, 2) + Math.pow((this.y + h / 2) - y, 2));
 		}
 
 	}
 
-	// ¸®ÀÚ¸ùÀÌ °ø°İ
+	// ë¦¬ìëª½ì´ ê³µê²©
 	class Attack {
 		int pX;
 		int pY;
@@ -1038,7 +1038,7 @@ public class DragonFlight extends JFrame {
 
 	}
 
-	// µÎ¹øÂ° ¸®ÀÚ¸ù °ø°İ
+	// ë‘ë²ˆì§¸ ë¦¬ìëª½ ê³µê²©
 	class Attack2 {
 		int pX;
 		int pY;
@@ -1056,7 +1056,7 @@ public class DragonFlight extends JFrame {
 			pY -= 10;
 		}
 
-		public void drawFire(Graphics g) { // µÎ¹ø¤Š ¸®ÀÚ¸ù °ø°İ
+		public void drawFire(Graphics g) { // ë‘ë²ˆì¨° ë¦¬ìëª½ ê³µê²©
 			g.drawImage(Fire2, pX, pY, width, height, null);
 		}
 
@@ -1070,7 +1070,7 @@ public class DragonFlight extends JFrame {
 
 	}
 
-	// µÎ¹øÂ° Æ÷ÄÏ¸ó °ø°İ ÇÇÁÔÀº °ø°İ X
+	// ë‘ë²ˆì§¸ í¬ì¼“ëª¬ ê³µê²© í”¼ì£¤ì€ ê³µê²© X
 	class MAttack1 {
 		int pX;
 		int pY;
@@ -1091,7 +1091,7 @@ public class DragonFlight extends JFrame {
 		}
 	}
 
-	// ¸Á³ª¿ëÀÌ ÇÏ´Â °ø°İ
+	// ë§ë‚˜ìš©ì´ í•˜ëŠ” ê³µê²©
 	class MAttack2 {
 		int pX;
 		int pY;
@@ -1124,7 +1124,7 @@ public class DragonFlight extends JFrame {
 		}
 	}
 
-	// ÇÁ¸®Á®°¡ ÇÏ´Â °ø°İ
+	// í”„ë¦¬ì ¸ê°€ í•˜ëŠ” ê³µê²©
 	class MAttack3 {
 		int pX;
 		int pY;
@@ -1157,7 +1157,7 @@ public class DragonFlight extends JFrame {
 		}
 	}
 
-	// »ı¸í·ÂÀ» ³ªÅ¸³»´Â ÇÏÆ®
+	// ìƒëª…ë ¥ì„ ë‚˜íƒ€ë‚´ëŠ” í•˜íŠ¸
 	class Heart {
 		int index;
 
@@ -1172,18 +1172,6 @@ public class DragonFlight extends JFrame {
 		}
 	}
 
-	// ÇÃ·¹ÀÌ¾î ÀÌ¸§
-//	class players {
-//		String name;
-//
-//		players(String player_name) {
-//			this.name = player_name;
-//		}
-//
-//		public String name() {
-//			return this.name;
-//		}
-//	}
 
 	public static void main(String[] args) {
 		
@@ -1191,6 +1179,8 @@ public class DragonFlight extends JFrame {
 		opt.db = new Database();
 		opt.lf = new LoginFrame(opt);
 		opt.jf = new JoinFrame(opt);
+		opt.cf = new ChangeFrame(opt);
+		opt.df = new DeleteFrame(opt);
 	}
 
 }
