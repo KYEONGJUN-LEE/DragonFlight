@@ -82,6 +82,7 @@ public class JoinFrame extends JFrame {
 			String unm = nm.getText();
 			String uid = id.getText();
 			String upass = "";
+			String uscore = "";
 			for(int i=0; i<pw.getPassword().length; i++) {
 				upass = upass + pw.getPassword()[i];
 			}
@@ -99,7 +100,7 @@ public class JoinFrame extends JFrame {
 				}
 				
 				else if(!unm.equals("") &&!uid.equals("") && !upass.equals("")) {
-					if(o.db.joinCheck(unm, uid, upass)) {
+					if(o.db.joinCheck(unm, uid, upass,uscore)) {
 						System.out.println("회원가입 성공");
 						JOptionPane.showMessageDialog(null, "회원가입에 성공하였습니다");
 						dispose();

@@ -152,10 +152,12 @@ public class LoginFrame extends JFrame {
 				
 				else if(unm != null && uid != null && upass != null) {
 					if(o.db.logincheck(unm, uid, upass)) {	//이 부분이 데이터베이스에 접속해 로그인 정보를 확인하는 부분이다.
-						System.out.println("로그인 성공");
+//						System.out.println("로그인 성공");
 						JOptionPane.showMessageDialog(null, "로그인에 성공하였습니다");
 						new DragonFlight();
 						setVisible(false);
+						
+						
 					} else {
 						System.out.println("로그인 실패 > 로그인 정보 불일치");
 						JOptionPane.showMessageDialog(null, "로그인에 실패하였습니다");

@@ -4,6 +4,9 @@ public class Operator {
 	JoinFrame jf = null;
 	ChangeFrame cf = null;
 	DeleteFrame df = null;
+//	DragonFlight d = null;
+	
+	
 	
 	public static void main(String[] args) {
 		Operator opt = new Operator();
@@ -12,6 +15,7 @@ public class Operator {
 		opt.jf = new JoinFrame(opt);
 		opt.cf = new ChangeFrame(opt);
 		opt.df = new DeleteFrame(opt);
+//		opt.d = new DragonFlight();
 		
 
 

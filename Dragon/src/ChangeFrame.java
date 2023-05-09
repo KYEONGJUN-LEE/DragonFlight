@@ -3,8 +3,6 @@ import java.awt.*;
 import javax.swing.event.*;
 
 
-
-
 import java.awt.event.*;
 
 public class ChangeFrame extends JFrame {
